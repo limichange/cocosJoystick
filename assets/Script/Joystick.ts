@@ -9,6 +9,9 @@ export default class Joystick extends cc.Component {
   @property(cc.Node)
   controller: cc.Node = null
 
+  @property([cc.Component.EventHandler])
+  EventHandler: cc.Component.EventHandler = []
+
   angle: number = null
   power: number = 0
   radius: number = 0
@@ -30,7 +33,7 @@ export default class Joystick extends cc.Component {
     let position = this.panel.convertToNodeSpaceAR(touchPosition)
 
     if (position.mag() > this.radius) {
-      position = position.normalizeSelf().mulSelf(this.radius)
+      position.normalizeSelf().mulSelf(this.radius)
     }
 
     this.power = position.mag() / this.radius
