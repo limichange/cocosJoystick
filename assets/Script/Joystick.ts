@@ -31,11 +31,9 @@ export default class Joystick extends cc.Component {
 
     if (position.mag() > this.radius) {
       position = position.normalizeSelf().mulSelf(this.radius)
-      this.power = 1
-    } else {
-      this.power = position.mag() / this.radius
     }
 
+    this.power = position.mag() / this.radius
     this.angle = position.angle(cc.p(0, 1))
     this.controller.setPosition(position)
   }
@@ -47,7 +45,7 @@ export default class Joystick extends cc.Component {
   }
 
   onDestroy() {
-    this.panel.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this)
+    this.panel.off(cc.Node.EventType.TOUCH_START, this.onTouchMove, this)
     this.panel.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this)
     this.panel.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this)
     this.panel.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this)
