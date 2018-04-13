@@ -39,7 +39,7 @@ export default class Joystick extends cc.Component {
     }
 
     this.power = position.mag() / this.radius
-    this.angle = position.signAngle(cc.p(0, 1))
+    this.angle = position.angle(cc.p(1, 0))
     this.controller.setPosition(position)
   }
 
