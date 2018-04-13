@@ -10,13 +10,14 @@ export default class Joystick extends cc.Component {
   controller: cc.Node = null
 
   @property([cc.Component.EventHandler])
-  EventHandler: cc.Component.EventHandler = []
+  moveEvents: cc.Component.EventHandler = []
 
   angle: number = null
   power: number = 0
   radius: number = 0
 
   start() {
+    this.name = 'joystick'
     this.radius = this.node.width / 2
     this.panel.on(cc.Node.EventType.TOUCH_START, this.onTouchMove, this)
     this.panel.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this)
@@ -27,6 +28,7 @@ export default class Joystick extends cc.Component {
   onTouchMove(e: cc.Event) {
     e.stopPropagation()
     this.setHandlePosition(e.touch.getLocation())
+    cc.Component.EventHandler.emitEvents(this.moveEvents, this)
   }
 
   setHandlePosition(touchPosition: cc.Vec2) {
@@ -37,7 +39,7 @@ export default class Joystick extends cc.Component {
     }
 
     this.power = position.mag() / this.radius
-    this.angle = position.angle(cc.p(0, 1))
+    this.angle = position.signAngle(cc.p(0, 1))
     this.controller.setPosition(position)
   }
 
