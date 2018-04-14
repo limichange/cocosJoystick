@@ -51,6 +51,7 @@ export default class Joystick extends cc.Component {
     this.power = 0
     this.direction = cc.p(0, 0)
     this.controller.setPosition(0, 0)
+    cc.Component.EventHandler.emitEvents(this.moveEvents, this)
   }
 
   onDestroy() {
