@@ -1,0 +1,23 @@
+{
+  "name": "cocosJoystick",
+  "version": "1.0.0",
+  "description": "cocos creator 虚拟摇杆",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d build/web-mobile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limichange/cocosJoystick.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/limichange/cocosJoystick/issues"
+  },
+  "homepage": "https://github.com/limichange/cocosJoystick#readme",
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  }
+}
