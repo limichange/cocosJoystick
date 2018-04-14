@@ -255,8 +255,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 75,
-      "height": 50
+      "width": 50,
+      "height": 75
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -307,9 +307,7 @@
     "node": {
       "__id__": 6
     },
-    "_enabled": true,
-    "label": null,
-    "text": "hello"
+    "_enabled": true
   },
   {
     "__type__": "cc.Node",
@@ -597,8 +595,8 @@
       "width": 960,
       "height": 640
     },
-    "_fitWidth": false,
-    "_fitHeight": true
+    "_fitWidth": true,
+    "_fitHeight": false
   },
   {
     "__type__": "e1b90/rohdEk4SdmmEZANaD",

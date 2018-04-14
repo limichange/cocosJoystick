@@ -18,7 +18,6 @@ export default class Joystick extends cc.Component {
   direction: cc.Vec2 = cc.p(0, 0)
 
   start() {
-    cc.log(cc.p(1,1).rotate(Math.PI * 0.5))
     this.name = 'joystick'
     this.radius = this.node.width / 2
     this.panel.on(cc.Node.EventType.TOUCH_START, this.onTouchMove, this)
