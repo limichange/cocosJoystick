@@ -15,8 +15,10 @@ export default class Joystick extends cc.Component {
   angle: number = null
   power: number = 0
   radius: number = 0
+  direction: cc.Vec2 = cc.p(0, 0)
 
   start() {
+    cc.log(cc.p(1,1).rotate(Math.PI * 0.5))
     this.name = 'joystick'
     this.radius = this.node.width / 2
     this.panel.on(cc.Node.EventType.TOUCH_START, this.onTouchMove, this)
@@ -39,13 +41,15 @@ export default class Joystick extends cc.Component {
     }
 
     this.power = position.mag() / this.radius
-    this.angle = position.angle(cc.p(1, 0))
+    this.angle = Math.atan2(position.y, position.x) * 180 / Math.PI
+    this.direction = position.normalize()
     this.controller.setPosition(position)
   }
 
   onTouchEnd() {
     this.angle = null
     this.power = 0
+    this.direction = cc.p(0, 0)
     this.controller.setPosition(0, 0)
   }
 
